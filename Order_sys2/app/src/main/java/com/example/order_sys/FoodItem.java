@@ -1,16 +1,32 @@
 package com.example.order_sys;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
+
 public class FoodItem {
 
     private int imageId;
     private String foodName;
     private int foodPrice;
 
-    public FoodItem(int imageId, String foodName, int foodPrice){
+    private Button btnAdd;
+
+    public FoodItem(int imageId, String foodName, int foodPrice, Button btnAdd){
         this.imageId = imageId;
         this.foodName = foodName;
         this.foodPrice = foodPrice;
+        this.btnAdd = btnAdd;
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent = new Intent(FoodItem.this, FoodActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
 
     public int getImageId() {
         return imageId;
