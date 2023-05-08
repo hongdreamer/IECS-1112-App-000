@@ -7,7 +7,8 @@ public class FoodItem implements Serializable{
     private String foodName;
     private String foodPrice;
 
-    // drink or food or snack
+    // drink or meal or snack
+    // it would determine what activity should be opened. (MealDetailActivity, DrinkDetailActivity, snackDetailActivity)
     private String foodType;
 
     public FoodItem(int imageId, String foodName, String foodPrice, String foodType) {
