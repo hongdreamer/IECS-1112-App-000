@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Alex/Programs/App/Project/signin/app/src/main/res/layout/activity_home_page.xml" value="0.13171225937183384" />
+        <entry key="..\:/Alex/Programs/App/Project/signin/app/src/main/res/layout/activity_main.xml" value="0.13171225937183384" />
+        <entry key="..\:/Alex/Programs/App/Project/signin/app/src/main/res/layout/activity_product_list.xml" value="0.13171225937183384" />
+        <entry key="..\:/Alex/Programs/App/Project/signin/app/src/main/res/layout/activity_show_detail.xml" value="0.1" />
+        <entry key="..\:/Alex/Programs/App/Project/signin/app/src/main/res/layout/activity_signup.xml" value="0.13171225937183384" />
+        <entry key="..\:/Alex/Programs/App/Project/signin/app/src/main/res/layout/food_item_layout.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
