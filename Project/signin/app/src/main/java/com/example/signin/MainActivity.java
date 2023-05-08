@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     String password = sharedPref.getString("password", "");
 
                     if(username.equals(etUsername.getText().toString()) && password.equals(etPassword.getText().toString())){
-                        Intent intent = new Intent(MainActivity.this, home_page.class);
+                        Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
                         startActivity(intent);
                     }
                     else {
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else if (v.getId() == R.id.btn_signup) {
-                    Intent intent = new Intent(MainActivity.this, signup.class);
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
 

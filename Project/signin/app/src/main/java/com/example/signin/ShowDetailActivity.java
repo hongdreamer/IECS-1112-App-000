@@ -1,23 +1,19 @@
 package com.example.signin;
 
-import static java.util.ResourceBundle.getBundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ShowDetailActivity extends AppCompatActivity {
 
     private TextView titleTxt,feeTxt,descriptionTxt,numberTxt;
     private ImageView plusBtn,minusBtn,foodImage;
     private Button addToCartBtn;
-    private FoodItem object;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +29,7 @@ public class ShowDetailActivity extends AppCompatActivity {
                 // Display the detailed information of the food item in the views
                 titleTxt.setText(selectedFood.getFoodName());
                 feeTxt.setText(selectedFood.getFoodPrice());
-                descriptionTxt.setText(selectedFood.getFoodDescription());
+                descriptionTxt.setText(selectedFood.getFoodType());
                 foodImage.setImageResource(selectedFood.getImageId());
                 // Set other views accordingly
             }

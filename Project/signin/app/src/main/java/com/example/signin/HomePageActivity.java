@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class home_page extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity {
 
     private Button btnOrder;
 
@@ -20,7 +20,7 @@ public class home_page extends AppCompatActivity {
         Button.OnClickListener listener = new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(home_page.this, product_list.class);
+                Intent intent = new Intent(HomePageActivity.this, MenuActivity.class);
                 startActivity(intent);
             }
         };

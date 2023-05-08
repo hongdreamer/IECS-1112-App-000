@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class signup extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private Button btnSignup;
     private EditText etUsername,etPassword;
@@ -41,9 +41,9 @@ public class signup extends AppCompatActivity {
                 editor.putString("password", password);
                 editor.commit();
 
-                Toast.makeText(signup.this, "Signup succesful " + username + ";" + password, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Signup succesful " + username + ";" + password, Toast.LENGTH_SHORT).show();
                 android.os.SystemClock.sleep(1000);
-                Intent intent = new Intent(signup.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         };

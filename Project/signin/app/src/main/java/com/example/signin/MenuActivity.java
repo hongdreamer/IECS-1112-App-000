@@ -4,18 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class product_list extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     private ListView lvFoods;
 
@@ -27,10 +23,10 @@ public class product_list extends AppCompatActivity {
         // setup the menu, which is displayed by a listview.
         lvFoods = findViewById(R.id.lv_foods);
         List<FoodItem> foods = new ArrayList<FoodItem>();
-        foods.add(new FoodItem(R.drawable.food1,"可樂","50", "Description"));
-        foods.add(new FoodItem(R.drawable.food2,"雞塊","100", "Description"));
-        foods.add(new FoodItem(R.drawable.food3,"薯條","20", "Description"));
-        foods.add(new FoodItem(R.drawable.food4,"漢堡","30", "Description"));
+        foods.add(new FoodItem(R.drawable.food1,"可樂","50", "drink"));
+        foods.add(new FoodItem(R.drawable.food2,"雞塊","100", "snack"));
+        foods.add(new FoodItem(R.drawable.food3,"薯條","20", "snack"));
+        foods.add(new FoodItem(R.drawable.food4,"漢堡","30", "meal"));
 
         ListViewAdapter adapter = new ListViewAdapter(this,foods);
         lvFoods.setAdapter(adapter);
@@ -55,7 +51,7 @@ public class product_list extends AppCompatActivity {
                 bundle.putSerializable("foodItem", selectedItem);
 
                 // Create an Intent object, specify the current and target activities
-                Intent intent = new Intent(product_list.this, ShowDetailActivity.class);
+                Intent intent = new Intent(MenuActivity.this, ShowDetailActivity.class);
                 intent.putExtras(bundle);
 
                 // Start the new activity

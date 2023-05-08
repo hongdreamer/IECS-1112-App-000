@@ -6,13 +6,15 @@ public class FoodItem implements Serializable{
     private int imageId;
     private String foodName;
     private String foodPrice;
-    private String foodDescription;
 
-    public FoodItem(int imageId, String foodName, String foodPrice, String foodDescription) {
+    // drink or food or snack
+    private String foodType;
+
+    public FoodItem(int imageId, String foodName, String foodPrice, String foodType) {
         this.imageId = imageId;
         this.foodName = foodName;
         this.foodPrice = foodPrice;
-        this.foodDescription = foodDescription;
+        this.foodType = foodType;
     }
     public int getImageId() {
         return imageId;
@@ -29,6 +31,6 @@ public class FoodItem implements Serializable{
     public String getFoodPrice() {
         return foodPrice;
     }
-    public void setFoodDescription(String foodDescription) {this.foodDescription = foodDescription;}
-    public String getFoodDescription(){return foodDescription;}
+    public void setFoodType(String foodDescription) {this.foodType = foodDescription;}
+    public String getFoodType(){return foodType;}
 }
