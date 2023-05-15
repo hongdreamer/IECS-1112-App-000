@@ -11,11 +11,20 @@ public class FoodItem implements Serializable{
     // it would determine what activity should be opened. (MealDetailActivity, DrinkDetailActivity, snackDetailActivity)
     private String foodType;
 
+    // customized food
+    private String ps;
+    private int quantity;
+
     public FoodItem(int imageId, String foodName, String foodPrice, String foodType) {
         this.imageId = imageId;
         this.foodName = foodName;
         this.foodPrice = foodPrice;
+        // drink, meal, or snack.
         this.foodType = foodType;
+        // ice or not...etc.
+        this.ps = "";
+        // the quantity of the food you want to order.
+        this.quantity = 0;
     }
     public int getImageId() {
         return imageId;
@@ -34,4 +43,16 @@ public class FoodItem implements Serializable{
     }
     public void setFoodType(String foodDescription) {this.foodType = foodDescription;}
     public String getFoodType(){return foodType;}
+    public String getPs() {
+        return ps;
+    }
+    public void setPs(String ps) {
+        this.ps = ps;
+    }
+    public int getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

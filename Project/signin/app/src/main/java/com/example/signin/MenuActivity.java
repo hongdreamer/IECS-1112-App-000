@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -14,13 +15,14 @@ import java.util.List;
 public class MenuActivity extends AppCompatActivity {
 
     private ListView lvFoods;
+    private Button btnCheckCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
 
-        // setup the menu, which is displayed by a listview.
+        // set the menu, which is displayed by a listview.
         lvFoods = findViewById(R.id.lv_foods);
         List<FoodItem> foods = new ArrayList<FoodItem>();
         foods.add(new FoodItem(R.drawable.food1,"可樂","50", "drink"));
@@ -38,30 +40,26 @@ public class MenuActivity extends AppCompatActivity {
                 FoodItem selectedItem = foods.get(position);
 
                 // Create a bundle object, and add the details of the selected item to the bundle
-
                 Bundle bundle = new Bundle();
-
-                /* These statements are work, but I think deliver an object would be better.
-                bundle.putInt("imageId", selectedItem.getImageId());
-                bundle.putString("foodName", selectedItem.getFoodName());
-                bundle.putString("foodPrice", selectedItem.getFoodPrice());
-                bundle.putString("foodDescription", selectedItem.getFoodDescription());
-                */
-
                 bundle.putSerializable("foodItem", selectedItem);
-
                 // Create an Intent object, specify the current and target activities
                 Intent intent = new Intent(MenuActivity.this, ShowDetailActivity.class);
                 intent.putExtras(bundle);
-
                 // Start the new activity
                 startActivity(intent);
             }
         });
 
-
-
-
-
+        // go checking the cart.
+        // page switching.
+        btnCheckCart = findViewById(R.id.btn_check_cart);
+        Button.OnClickListener listener = new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        };
+        btnCheckCart.setOnClickListener(listener);
     }
 }
