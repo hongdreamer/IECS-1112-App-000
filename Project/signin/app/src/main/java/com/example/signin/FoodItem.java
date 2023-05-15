@@ -7,8 +7,8 @@ public class FoodItem implements Serializable{
     private String foodName;
     private String foodPrice;
 
-    // drink or meal or snack
-    // it would determine what activity should be opened. (MealDetailActivity, DrinkDetailActivity, snackDetailActivity)
+    // drink or mea
+    // it would determine what activity should be opened. (MealDetailActivity, DrinkDetailActivity)
     private String foodType;
 
     // customized food
@@ -19,7 +19,7 @@ public class FoodItem implements Serializable{
         this.imageId = imageId;
         this.foodName = foodName;
         this.foodPrice = foodPrice;
-        // drink, meal, or snack.
+        // drink or meal.
         this.foodType = foodType;
         // ice or not...etc.
         this.ps = "";

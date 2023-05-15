@@ -22,9 +22,6 @@
             android:name=".CheckActivity"
             android:exported="false" />
         <activity
-            android:name=".SnackDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".DrinkDetailActivity"
             android:exported="false" />
         <activity

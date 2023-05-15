@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class HomePageActivity extends AppCompatActivity {
 
-    private Button btnOrder;
+    private Button btnOrder, btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,14 +17,26 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         btnOrder = findViewById(R.id.btn_order);
-        Button.OnClickListener listener = new Button.OnClickListener() {
+        Button.OnClickListener btnOrderOnClickListener = new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomePageActivity.this, MenuActivity.class);
                 startActivity(intent);
             }
         };
-        btnOrder.setOnClickListener(listener);
+        btnOrder.setOnClickListener(btnOrderOnClickListener);
+
+        btnLogout = findViewById(R.id.btn_logout);
+        Button.OnClickListener btnLogoutOnClickListener = new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePageActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        };
+        btnLogout.setOnClickListener(btnLogoutOnClickListener);
+
+
 
     }
 }
