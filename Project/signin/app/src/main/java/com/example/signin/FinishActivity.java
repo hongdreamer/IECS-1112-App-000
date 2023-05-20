@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class FinishActivity extends AppCompatActivity {
   private Button btnRefresh;
@@ -23,5 +24,9 @@ public class FinishActivity extends AppCompatActivity {
       }
     };
     btnRefresh.setOnClickListener(listener);
+  }
+  @Override
+  public void onBackPressed() {
+    Toast.makeText(FinishActivity.this, "This operation has been disable in this page.", Toast.LENGTH_SHORT).show();
   }
 }

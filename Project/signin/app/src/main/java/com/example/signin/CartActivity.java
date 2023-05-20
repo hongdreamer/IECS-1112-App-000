@@ -5,8 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import java.util.List;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +31,15 @@ public class CartActivity extends AppCompatActivity {
     ListViewAdapter4Cart adapter = new ListViewAdapter4Cart(this,orderItems);
     lvCart.setAdapter(adapter);
 
+    // 设置 ListView 的点击事件监听器
+    lvCart.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // 弹出删除确认对话框
+        showDeleteConfirmationDialog(position);
+      }
+    });
+
     // go checking the cart.
     // page switching.
     btnSendOrder = findViewById(R.id.btn_send_order);
@@ -38,4 +52,26 @@ public class CartActivity extends AppCompatActivity {
     };
     btnSendOrder.setOnClickListener(listener);
   }
+
+  private void showDeleteConfirmationDialog(final int position) {
+    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    builder.setTitle("確認刪除")
+            .setMessage("確認刪除此項嗎?？")
+            .setPositiveButton("確定", new DialogInterface.OnClickListener() {
+              @Override
+              public void onClick(DialogInterface dialog, int which) {
+                // 从订单中删除对应的项
+                List<FoodItem> orderItems = Order.getInstance().getOrder();
+                orderItems.remove(position);
+
+                // 刷新显示
+                ListViewAdapter4Cart adapter = (ListViewAdapter4Cart) lvCart.getAdapter();
+                adapter.notifyDataSetChanged();
+              }
+            })
+            .setNegativeButton("取消", null)
+            .create()
+            .show();
+  }
+
 }
