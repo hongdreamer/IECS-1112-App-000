@@ -5,9 +5,9 @@ public class FoodItem implements Serializable{
 
     private int imageId;
     private String foodName;
-    private String foodPrice;
+    private int foodPrice;
 
-    // drink or mea
+    // drink or meal
     // it would determine what activity should be opened. (MealDetailActivity, DrinkDetailActivity)
     private String foodType;
 
@@ -15,7 +15,7 @@ public class FoodItem implements Serializable{
     private String ps;
     private int quantity;
 
-    public FoodItem(int imageId, String foodName, String foodPrice, String foodType) {
+    public FoodItem(int imageId, String foodName, int foodPrice, String foodType) {
         this.imageId = imageId;
         this.foodName = foodName;
         this.foodPrice = foodPrice;
@@ -38,7 +38,7 @@ public class FoodItem implements Serializable{
     public void setFoodName(String foodName) {
         this.foodName = foodName;
     }
-    public String getFoodPrice() {
+    public int getFoodPrice() {
         return foodPrice;
     }
     public void setFoodType(String foodDescription) {this.foodType = foodDescription;}

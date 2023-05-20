@@ -20,15 +20,15 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_list);
+        setContentView(R.layout.activity_menu);
 
         // set the menu, which is displayed by a listview.
         lvFoods = findViewById(R.id.lv_foods);
         List<FoodItem> foods = new ArrayList<FoodItem>();
-        foods.add(new FoodItem(R.drawable.food1,"可樂","50", "drink"));
-        foods.add(new FoodItem(R.drawable.food2,"雞塊","100", "snack"));
-        foods.add(new FoodItem(R.drawable.food3,"薯條","20", "snack"));
-        foods.add(new FoodItem(R.drawable.food4,"漢堡","30", "meal"));
+        foods.add(new FoodItem(R.drawable.food1,"可樂",50, "drink"));
+        foods.add(new FoodItem(R.drawable.food2,"雞塊",100, "meal"));
+        foods.add(new FoodItem(R.drawable.food3,"薯條",20, "meal"));
+        foods.add(new FoodItem(R.drawable.food4,"漢堡",30, "meal"));
 
         ListViewAdapter adapter = new ListViewAdapter(this,foods);
         lvFoods.setAdapter(adapter);
@@ -42,8 +42,15 @@ public class MenuActivity extends AppCompatActivity {
                 // Create a bundle object, and add the details of the selected item to the bundle
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("foodItem", selectedItem);
-                // Create an Intent object, specify the current and target activities
-                Intent intent = new Intent(MenuActivity.this, ShowDetailActivity.class);
+                // Create an Intent object, specify target activity
+                Intent intent;
+                if(selectedItem.getFoodType() == "drink")
+                    // drink
+                    intent = new Intent(MenuActivity.this, DrinkDetailActivity.class);
+                else
+                    // meal
+                    intent = new Intent(MenuActivity.this, MealDetailActivity.class);
+
                 intent.putExtras(bundle);
                 // Start the new activity
                 startActivity(intent);

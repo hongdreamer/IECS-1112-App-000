@@ -12,41 +12,57 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
+
+    private EditText etUsername;
+    private EditText etPassword;
+
+    private Button btnSignin;
     private Button btnSignup;
-    private EditText etUsername,etPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_login);
 
-        btnSignup = findViewById(R.id.btn_signup2);
-        etUsername = findViewById(R.id.et_signup_username);
-        etPassword = findViewById(R.id.et_signup_password);
+        btnSignin = findViewById(R.id.btn_signin);
+        btnSignup = findViewById(R.id.btn_signup);
+        etUsername = findViewById(R.id.et_username);
+        etPassword = findViewById(R.id.et_password);
 
-        Button.OnClickListener listener = new Button.OnClickListener() {
+
+        Button.OnClickListener listener = new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
+                if (v.getId() == R.id.btn_signin) {
+                    SharedPreferences sharedPref = getSharedPreferences("account", MODE_PRIVATE);
+                    String username = sharedPref.getString("username", "");
+                    String password = sharedPref.getString("password", "");
 
+                    if(username.equals(etUsername.getText().toString()) && password.equals(etPassword.getText().toString())){
+                        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(LoginActivity.this, "invalid username or password", Toast.LENGTH_SHORT).show();
 
-                if (username.isEmpty() || password.isEmpty()) {
-                    return;
+                    }
+
+                }
+                else if (v.getId() == R.id.btn_signup) {
+                    Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                    startActivity(intent);
                 }
 
-                SharedPreferences sharedPreferences = getSharedPreferences("account", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("username", username);
-                editor.putString("password", password);
-                editor.commit();
-
-                Toast.makeText(LoginActivity.this, "Signup succesful " + username + ";" + password, Toast.LENGTH_SHORT).show();
-                android.os.SystemClock.sleep(1000);
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
             }
+            
         };
+        btnSignin.setOnClickListener(listener);
         btnSignup.setOnClickListener(listener);
+
+        //Toast.makeText(this, "Oncreate method is called", Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(LoginActivity.this, "This operation has been disable in this page.", Toast.LENGTH_SHORT).show();
     }
 }

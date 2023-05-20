@@ -1,19 +1,16 @@
 package com.example.signin;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
-public class Order {
-
-  // By this setting, all the activity could share the same object.
+public class Order implements Serializable {
   private static Order instance; // Singleton instance
 
-  private List<FoodItem> order;
+  private List<FoodItem> order; // Changed to ArrayList<FoodItem>
 
   private Order() {
-    order = new ArrayList<FoodItem>();
+    order = new ArrayList<>();
   }
 
   // Get the instance of the Order object
@@ -28,12 +25,13 @@ public class Order {
     order.add(item);
   }
 
-  public void removeFromOrder(int idx){
-    order.remove(idx);
+  public void removeFromOrder(FoodItem item){
+    order.remove(item);
   }
 
-  public FoodItem getItem(int idx){
-    return order.get(idx);
-  }
+  // Add other methods as needed
 
+  public List<FoodItem> getOrder() {
+    return order;
+  }
 }
