@@ -2,6 +2,7 @@ package com.example.signin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class DrinkDetailActivity extends AppCompatActivity {
-  private int amount = 0;
+  private int quantity = 0;
   private String foodName, foodType;
   private int imageId, foodPrice;
 
@@ -48,17 +49,17 @@ public class DrinkDetailActivity extends AppCompatActivity {
     plusButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        amount++;
-        amountTextView.setText(String.valueOf(amount));
+        quantity++;
+        amountTextView.setText(String.valueOf(quantity));
       }
     });
 
     minusButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        if (amount > 0) {
-          amount--;
-          amountTextView.setText(String.valueOf(amount));
+        if (quantity > 0) {
+          quantity--;
+          amountTextView.setText(String.valueOf(quantity));
         }
       }
     });
@@ -66,12 +67,18 @@ public class DrinkDetailActivity extends AppCompatActivity {
     addToCartButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        // Create a new FoodItem with the relevant details
-        FoodItem drinkItem = new FoodItem(imageId, foodName, foodPrice, foodType);
-        // Add the drink to the order
-        Order.getInstance().addToOrder(drinkItem);
-        // Display a message or perform any additional actions
-        Toast.makeText(DrinkDetailActivity.this, "Drink added to cart", Toast.LENGTH_SHORT).show();
+        if(quantity > 0){
+          // Create a new FoodItem with the relevant details
+          FoodItem drinkItem = new FoodItem(imageId, foodName, foodPrice, foodType, quantity, "Drink here");
+          // Add the drink to the order
+          Order.getInstance().addToOrder(drinkItem);
+          // Display a message or perform any additional actions
+          Toast.makeText(DrinkDetailActivity.this, "Drink added to cart", Toast.LENGTH_SHORT).show();
+          Intent intent = new Intent(DrinkDetailActivity.this, MenuActivity.class);
+          startActivity(intent);
+        }
+        else
+          Toast.makeText(DrinkDetailActivity.this, "The quantity is 0.", Toast.LENGTH_SHORT).show();
       }
     });
   }

@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ListViewAdapter extends BaseAdapter {
+public class ListViewAdapter4Cart extends BaseAdapter {
     private Context context;
     private List<FoodItem> listFoods;
 
-    public ListViewAdapter(Context context, List<FoodItem> listFoods) {
+    public ListViewAdapter4Cart(Context context, List<FoodItem> listFoods) {
         this.context = context;
         this.listFoods = listFoods;
     }
@@ -40,19 +40,25 @@ public class ListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup){
         if(view == null){
-            view = LayoutInflater.from(context).inflate(R.layout.food_item_layout,viewGroup,false);
+            view = LayoutInflater.from(context).inflate(R.layout.order_list_layout,viewGroup,false);
         }
         FoodItem food = listFoods.get(i);
-        ImageView iv = view.findViewById(R.id.lv_food);
+        ImageView iv = view.findViewById(R.id.iv_order_food);
         iv.setImageResource(food.getImageId());
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
 
-        TextView tvFoodName = view.findViewById(R.id.tv_food_name);
+        TextView tvFoodName = view.findViewById(R.id.tv_order_food_name);
         tvFoodName.setText(food.getFoodName());
 
-        TextView tvFoodPrice = view.findViewById(R.id.tv_food_price);
+        TextView tvFoodPrice = view.findViewById(R.id.tv_order_food_price);
         tvFoodPrice.setText(String.valueOf(food.getFoodPrice()));
+
+        TextView tvFoodQuantity = view.findViewById(R.id.tv_order_quantity);
+        tvFoodQuantity.setText(String.valueOf(food.getFoodQuantity()));
+
+        TextView tvFoodPs = view.findViewById(R.id.tv_order_ps);
+        tvFoodPs.setText(food.getFoodPs());
 
         return view;
     }

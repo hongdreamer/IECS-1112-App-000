@@ -26,6 +26,18 @@ public class FoodItem implements Serializable{
         // the quantity of the food you want to order.
         this.quantity = 0;
     }
+    public FoodItem(int imageId, String foodName, int foodPrice, String foodType, int quantity, String ps) {
+        this.imageId = imageId;
+        this.foodName = foodName;
+        this.foodPrice = foodPrice;
+        // drink or meal.
+        this.foodType = foodType;
+        // ice or not...etc.
+        this.ps = ps;
+        // the quantity of the food you want to order.
+        this.quantity = quantity;
+    }
+
     public int getImageId() {
         return imageId;
     }
@@ -43,16 +55,16 @@ public class FoodItem implements Serializable{
     }
     public void setFoodType(String foodDescription) {this.foodType = foodDescription;}
     public String getFoodType(){return foodType;}
-    public String getPs() {
+    public String getFoodPs() {
         return ps;
     }
-    public void setPs(String ps) {
+    public void setFoodPs(String ps) {
         this.ps = ps;
     }
-    public int getQuantity() {
+    public int getFoodQuantity() {
         return quantity;
     }
-    public void setQuantity(int quantity) {
+    public void setFoodQuantity(int quantity) {
         this.quantity = quantity;
     }
 }

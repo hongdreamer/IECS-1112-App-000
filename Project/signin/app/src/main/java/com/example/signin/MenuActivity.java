@@ -30,7 +30,7 @@ public class MenuActivity extends AppCompatActivity {
         foods.add(new FoodItem(R.drawable.food3,"薯條",20, "meal"));
         foods.add(new FoodItem(R.drawable.food4,"漢堡",30, "meal"));
 
-        ListViewAdapter adapter = new ListViewAdapter(this,foods);
+        ListViewAdapter4Menu adapter = new ListViewAdapter4Menu(this,foods);
         lvFoods.setAdapter(adapter);
 
         // deal with the click events of the listview widget.
