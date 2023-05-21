@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="temperature_options">
+        <item>去冰</item>
+        <item>微冰</item>
+        <item>少冰</item>
+        <item>正常冰</item>
+        <item>溫</item>
+    </string-array>
+
+    <string-array name="sugar_options">
+        <item>無糖</item>
+        <item>微糖</item>
+        <item>半糖</item>
+        <item>少糖</item>
+        <item>正常</item>
+    </string-array>
+
+    <string-array name="flavor_options">
+        <item>原味</item>
+        <item>黑胡椒</item>
+        <item>蒜味</item>
+        <item>蜜汁</item>
+        <item>檸檬</item>
+        <item>糖醋</item>
+        <item>甘梅</item>
+    </string-array>
+
+    <string-array name="spiciness_options">
+        <item>不辣</item>
+        <item>微辣</item>
+        <item>小辣</item>
+        <item>中辣</item>
+        <item>大辣</item>
+    </string-array>
+</resources>

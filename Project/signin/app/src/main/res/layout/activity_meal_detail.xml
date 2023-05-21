@@ -37,11 +37,57 @@
 
         <ImageView
             android:id="@+id/iv_meal_img"
-            android:layout_width="350sp"
-            android:layout_height="350sp"
+            android:layout_width="300sp"
+            android:layout_height="300sp"
             android:layout_gravity="center"
             android:focusable="false"
             app:srcCompat="@drawable/food1" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout_flavor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/tv_flavor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="溫度:"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/sp_flavor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/flavor_options" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_spiciness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/tv_spiciness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="糖度:"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/sp_spiciness"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/spiciness_options" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout"

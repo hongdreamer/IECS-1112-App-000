@@ -52,13 +52,13 @@ public class ListViewAdapter4Cart extends BaseAdapter {
         tvFoodName.setText(food.getFoodName());
 
         TextView tvFoodPrice = view.findViewById(R.id.tv_order_food_price);
-        tvFoodPrice.setText(String.valueOf(food.getFoodPrice()));
+        tvFoodPrice.setText("該項總價錢：" + String.valueOf(food.getFoodPrice()*food.getFoodQuantity()));
 
         TextView tvFoodQuantity = view.findViewById(R.id.tv_order_quantity);
-        tvFoodQuantity.setText(String.valueOf(food.getFoodQuantity()));
+        tvFoodQuantity.setText("數量：" + String.valueOf(food.getFoodQuantity()));
 
         TextView tvFoodPs = view.findViewById(R.id.tv_order_ps);
-        tvFoodPs.setText(food.getFoodPs());
+        tvFoodPs.setText("客製化：" + food.getFoodPs());
 
         return view;
     }
