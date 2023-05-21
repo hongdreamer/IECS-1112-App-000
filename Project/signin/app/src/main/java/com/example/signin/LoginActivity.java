@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                     if(username.equals(etUsername.getText().toString()) && password.equals(etPassword.getText().toString())){
                         Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                     else {
                         Toast.makeText(LoginActivity.this, "invalid username or password", Toast.LENGTH_SHORT).show();
@@ -51,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 else if (v.getId() == R.id.btn_signup) {
                     Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                     startActivity(intent);
+                    finish();
                 }
 
             }

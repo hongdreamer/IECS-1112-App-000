@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,7 @@ public class MenuActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 // Start the new activity
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -65,8 +67,18 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, CartActivity.class);
                 startActivity(intent);
+                finish();
             }
         };
         btnCheckCart.setOnClickListener(listener);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Disable the back button
+        // Remove the super call to disable the default back button behavior
+        Intent intent = new Intent(MenuActivity.this, HomePageActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

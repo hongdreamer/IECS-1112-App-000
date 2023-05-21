@@ -33,6 +33,7 @@ public class HomePageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HomePageActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         };
         btnLogout.setOnClickListener(btnLogoutOnClickListener);

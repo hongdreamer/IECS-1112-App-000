@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -89,5 +90,14 @@ public class DrinkDetailActivity extends AppCompatActivity {
           Toast.makeText(DrinkDetailActivity.this, "The quantity is 0.", Toast.LENGTH_SHORT).show();
       }
     });
+  }
+
+  @Override
+  public void onBackPressed() {
+    // Disable the back button
+    // Remove the super call to disable the default back button behavior
+    Intent intent = new Intent(DrinkDetailActivity.this, MenuActivity.class);
+    startActivity(intent);
+    finish();
   }
 }

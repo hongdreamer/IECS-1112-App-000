@@ -88,6 +88,14 @@ public class MealDetailActivity extends AppCompatActivity {
           Toast.makeText(MealDetailActivity.this, "The quantity is 0.", Toast.LENGTH_SHORT).show();
       }
     });
+  }
 
+  @Override
+  public void onBackPressed() {
+    // Disable the back button
+    // Remove the super call to disable the default back button behavior
+    Intent intent = new Intent(MealDetailActivity.this, MenuActivity.class);
+    startActivity(intent);
+    finish();
   }
 }

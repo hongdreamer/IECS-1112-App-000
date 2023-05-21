@@ -49,5 +49,12 @@ public class SignupActivity extends AppCompatActivity {
         };
         btnSignup.setOnClickListener(listener);
     }
-
+    @Override
+    public void onBackPressed() {
+        // Disable the back button
+        // Remove the super call to disable the default back button behavior
+        Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

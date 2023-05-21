@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -78,4 +79,12 @@ public class CartActivity extends AppCompatActivity {
             .show();
   }
 
+  @Override
+  public void onBackPressed() {
+    // Disable the back button
+    // Remove the super call to disable the default back button behavior
+    Intent intent = new Intent(CartActivity.this, MenuActivity.class);
+    startActivity(intent);
+    finish();
+  }
 }
