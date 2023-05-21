@@ -42,8 +42,8 @@
 
         <ImageView
             android:id="@+id/iv_drink_img"
-            android:layout_width="300sp"
-            android:layout_height="300sp"
+            android:layout_width="280sp"
+            android:layout_height="280sp"
             android:layout_gravity="center"
             android:focusable="false"
             app:srcCompat="@drawable/food1" />
