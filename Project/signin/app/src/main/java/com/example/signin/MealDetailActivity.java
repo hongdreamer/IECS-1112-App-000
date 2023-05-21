@@ -31,9 +31,6 @@ public class MealDetailActivity extends AppCompatActivity {
     TextView amountTextView = findViewById(R.id.tv_meal_amount);
     Button addToCartButton = findViewById(R.id.btn_meal_add_to_cart);
 
-    String flavor = flavorSpinner.getSelectedItem().toString();
-    String spiciness = spicinessSpinner.getSelectedItem().toString();
-    foodPs = flavor + "；" + spiciness + "；";
 
     // activity setup according to what it is
     Bundle bundle = getIntent().getExtras();
@@ -73,6 +70,9 @@ public class MealDetailActivity extends AppCompatActivity {
     addToCartButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+        String flavor = flavorSpinner.getSelectedItem().toString();
+        String spiciness = spicinessSpinner.getSelectedItem().toString();
+        foodPs = flavor + "；" + spiciness + "；";
         if(quantity > 0){
           // Create a new FoodItem with the relevant details
           FoodItem mealItem = new FoodItem(imageId, foodName, foodPrice, foodType, quantity, foodPs);

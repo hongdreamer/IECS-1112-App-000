@@ -46,8 +46,12 @@ public class CartActivity extends AppCompatActivity {
     Button.OnClickListener listener = new Button.OnClickListener() {
       @Override
       public void onClick(View v) {
+        Order order = Order.getInstance();
+        order.clear();
+
         Intent intent = new Intent(CartActivity.this, FinishActivity.class);
         startActivity(intent);
+        finish();
       }
     };
     btnSendOrder.setOnClickListener(listener);

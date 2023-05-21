@@ -1,5 +1,7 @@
 package com.example.signin;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,25 @@ public class Order implements Serializable {
   }
 
   public void addToOrder(FoodItem item) {
-    order.add(item);
+    Log.i("Order", "Food Ps: " + item.getFoodPs());
+    boolean itemExists = false;
+    for (FoodItem existingItem : order) {
+      if (existingItem.getFoodName().equals(item.getFoodName()) &&
+              existingItem.getFoodPs().equals(item.getFoodPs())) {
+        // Item with the same name and options already exists in the order
+        existingItem.setFoodQuantity(existingItem.getFoodQuantity() + item.getFoodQuantity());
+        itemExists = true;
+        break;
+      }
+    }
+
+    if (!itemExists) {
+      order.add(item);
+    }
+  }
+
+  public void clear() {
+    order.clear();
   }
 
   public void removeFromOrder(FoodItem item){

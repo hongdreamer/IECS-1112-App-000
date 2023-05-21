@@ -31,9 +31,6 @@ public class DrinkDetailActivity extends AppCompatActivity {
     TextView amountTextView = findViewById(R.id.tv_drink_amount);
     Button addToCartButton = findViewById(R.id.btn_drink_add_to_cart);
 
-    String temperature = temperatureSpinner.getSelectedItem().toString();
-    String sugar = sugarSpinner.getSelectedItem().toString();
-    foodPs = temperature + "；" + sugar + "；";
 
     // activity setup according to what it is
 
@@ -74,6 +71,9 @@ public class DrinkDetailActivity extends AppCompatActivity {
     addToCartButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+        String temperature = temperatureSpinner.getSelectedItem().toString();
+        String sugar = sugarSpinner.getSelectedItem().toString();
+        foodPs = temperature + "；" + sugar + "；";
         if(quantity > 0){
           // Create a new FoodItem with the relevant details
           FoodItem drinkItem = new FoodItem(imageId, foodName, foodPrice, foodType, quantity, foodPs);
