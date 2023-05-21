@@ -19,7 +19,8 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
   private ListView lvCart;
-  private Button btnSendOrder;
+  private Button btnSendOrder, btnCartBack;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -56,6 +57,14 @@ public class CartActivity extends AppCompatActivity {
       }
     };
     btnSendOrder.setOnClickListener(listener);
+
+    btnCartBack = findViewById(R.id.btn_cart_back);
+    btnCartBack.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        onBackPressed();
+      }
+    });
   }
 
   private void showDeleteConfirmationDialog(final int position) {

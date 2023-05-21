@@ -31,6 +31,7 @@ public class DrinkDetailActivity extends AppCompatActivity {
     ImageView minusButton = findViewById(R.id.iv_drink_btn_minus);
     TextView amountTextView = findViewById(R.id.tv_drink_amount);
     Button addToCartButton = findViewById(R.id.btn_drink_add_to_cart);
+    Button btnDrinkDetailBack = findViewById(R.id.btn_drink_detail_back);
 
 
     // activity setup according to what it is
@@ -88,6 +89,13 @@ public class DrinkDetailActivity extends AppCompatActivity {
         }
         else
           Toast.makeText(DrinkDetailActivity.this, "The quantity is 0.", Toast.LENGTH_SHORT).show();
+      }
+    });
+
+    btnDrinkDetailBack.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        onBackPressed();
       }
     });
   }

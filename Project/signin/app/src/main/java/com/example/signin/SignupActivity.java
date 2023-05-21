@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private Button btnSignup;
+    private Button btnSignup, btnSignupBack;
     private EditText etUsername,etPassword;
 
     @Override
@@ -21,6 +21,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         btnSignup = findViewById(R.id.btn_signup2);
+        btnSignupBack = findViewById(R.id.btn_signup_back);
         etUsername = findViewById(R.id.et_signup_username);
         etPassword = findViewById(R.id.et_signup_password);
 
@@ -48,7 +49,17 @@ public class SignupActivity extends AppCompatActivity {
             }
         };
         btnSignup.setOnClickListener(listener);
+
+        btnSignupBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
+
+
     @Override
     public void onBackPressed() {
         // Disable the back button

@@ -16,7 +16,7 @@ import java.util.List;
 public class MenuActivity extends AppCompatActivity {
 
     private ListView lvFoods;
-    private Button btnCheckCart;
+    private Button btnCheckCart, btnMenuBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +71,14 @@ public class MenuActivity extends AppCompatActivity {
             }
         };
         btnCheckCart.setOnClickListener(listener);
+
+        btnMenuBack = findViewById(R.id.btn_menu_back);
+        btnMenuBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
