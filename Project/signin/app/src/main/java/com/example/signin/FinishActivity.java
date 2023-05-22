@@ -9,13 +9,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class FinishActivity extends AppCompatActivity {
-  private Button btnRefresh;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_finish);
 
-    btnRefresh = findViewById(R.id.btn_refresh);
+    Button btnRefresh = findViewById(R.id.btn_refresh);
     Button.OnClickListener listener = new Button.OnClickListener() {
       @Override
       public void onClick(View v) {

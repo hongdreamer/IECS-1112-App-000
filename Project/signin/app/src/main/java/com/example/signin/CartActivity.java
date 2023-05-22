@@ -1,25 +1,22 @@
 package com.example.signin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import java.util.List;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
   private ListView lvCart;
-  private Button btnSendOrder, btnCartBack;
+  private TextView tvCartPrice;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +41,7 @@ public class CartActivity extends AppCompatActivity {
 
     // go checking the cart.
     // page switching.
-    btnSendOrder = findViewById(R.id.btn_send_order);
+    Button btnSendOrder = findViewById(R.id.btn_send_order);
     Button.OnClickListener listener = new Button.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -58,13 +55,15 @@ public class CartActivity extends AppCompatActivity {
     };
     btnSendOrder.setOnClickListener(listener);
 
-    btnCartBack = findViewById(R.id.btn_cart_back);
+    Button btnCartBack = findViewById(R.id.btn_cart_back);
     btnCartBack.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         onBackPressed();
       }
     });
+    tvCartPrice = findViewById(R.id.tv_cart_price);
+    updateCartPriceText();
   }
 
   private void showDeleteConfirmationDialog(final int position) {
@@ -81,6 +80,7 @@ public class CartActivity extends AppCompatActivity {
                 // 刷新显示
                 ListViewAdapter4Cart adapter = (ListViewAdapter4Cart) lvCart.getAdapter();
                 adapter.notifyDataSetChanged();
+                updateCartPriceText();
               }
             })
             .setNegativeButton("取消", null)
@@ -96,4 +96,20 @@ public class CartActivity extends AppCompatActivity {
     startActivity(intent);
     finish();
   }
+  private void updateCartPriceText() {
+    int totalPrice = calculateTotalPrice();
+    String textCartPrice = "總共：$" + totalPrice;
+    tvCartPrice.setText(textCartPrice);
+  }
+
+  private int calculateTotalPrice() {
+    int totalPrice = 0;
+    Order order = Order.getInstance();
+    List<FoodItem> orderItems = order.getOrder();
+    for (FoodItem food : orderItems) {
+      totalPrice += food.getFoodPrice() * food.getFoodQuantity();
+    }
+    return totalPrice;
+  }
+
 }
