@@ -17,6 +17,7 @@
             android:id="@+id/btn_drink_detail_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:cornerRadius="25dip"
             android:text="Back" />
 
         <TextView
@@ -136,6 +137,7 @@
             android:id="@+id/btn_drink_add_to_cart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cornerRadius="25dip"
             android:text="Add To My Cart" />
 
     </LinearLayout>
