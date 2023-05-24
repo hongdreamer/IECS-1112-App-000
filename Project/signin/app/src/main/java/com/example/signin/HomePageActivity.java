@@ -10,14 +10,12 @@ import android.widget.Toast;
 
 public class HomePageActivity extends AppCompatActivity {
 
-    private Button btnOrder, btnLogout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        btnOrder = findViewById(R.id.btn_order);
+        Button btnOrder = findViewById(R.id.btn_order);
         Button.OnClickListener btnOrderOnClickListener = new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,7 +25,7 @@ public class HomePageActivity extends AppCompatActivity {
         };
         btnOrder.setOnClickListener(btnOrderOnClickListener);
 
-        btnLogout = findViewById(R.id.btn_logout);
+        Button btnLogout = findViewById(R.id.btn_logout);
         Button.OnClickListener btnLogoutOnClickListener = new Button.OnClickListener() {
             @Override
             public void onClick(View v) {

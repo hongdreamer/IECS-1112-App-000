@@ -16,16 +16,13 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
 
-    private Button btnSignin;
-    private Button btnSignup;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnSignin = findViewById(R.id.btn_signin);
-        btnSignup = findViewById(R.id.btn_signup);
+        Button btnSignin = findViewById(R.id.btn_signin);
+        Button btnSignup = findViewById(R.id.btn_signup);
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
 

@@ -44,9 +44,10 @@ public class DrinkDetailActivity extends AppCompatActivity {
         foodName = selectedFood.getFoodName();
         foodPrice = selectedFood.getFoodPrice();
         foodType = selectedFood.getFoodType();
+        String priceText = "$" + foodPrice;
         // Display the detailed information of the food item in the views
         titleTxt.setText(foodName);
-        feeTxt.setText(String.valueOf(foodPrice));
+        feeTxt.setText(priceText);
         foodImage.setImageResource(imageId);
         // Set other views accordingly
       }

@@ -21,7 +21,7 @@
     <ListView
         android:id="@+id/lv_cart"
         android:layout_width="400dp"
-        android:layout_height="455dp"
+        android:layout_height="430dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -34,13 +34,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         app:cornerRadius="25dip"
         android:text="送出訂單"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_cart" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_cart_price" />
 
     <Button
         android:id="@+id/btn_cart_back"
@@ -50,4 +51,15 @@
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cart_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="總共：$ 0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_cart" />
 </androidx.constraintlayout.widget.ConstraintLayout>
