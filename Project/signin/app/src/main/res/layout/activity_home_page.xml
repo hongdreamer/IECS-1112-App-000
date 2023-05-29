@@ -25,22 +25,38 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="404dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:text="立即點餐"
         app:cornerRadius="25dip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/lv_ads" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/iv_homepage_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/homepage_pic" />
+        app:srcCompat="@drawable/homepage_pic"
+        android:focusable="false"
+        tools:ignore="ContentDescription" />
+
+    <ListView
+        android:id="@+id/lv_ads"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:focusable="false"
+        app:layout_constraintTop_toBottomOf="@+id/iv_homepage_title"
+        tools:ignore="DuplicateIds" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
