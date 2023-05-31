@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFC7C7"
     tools:context=".MenuActivity">
 
     <ListView
@@ -25,6 +26,8 @@
         android:layout_marginTop="16dp"
         android:text="菜單"
         android:textSize="20sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
