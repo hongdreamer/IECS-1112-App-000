@@ -23,10 +23,10 @@ public class HomePageActivity extends AppCompatActivity {
 
         ListView lvAds = findViewById(R.id.lv_ads);
         ad_list = new ArrayList<>();
-        ad_list.add(new FoodItem(R.drawable.food1, "可樂", 50, "drink"));
-        ad_list.add(new FoodItem(R.drawable.food2, "雞塊", 100, "meal"));
-        ad_list.add(new FoodItem(R.drawable.food3, "薯條", 20, "meal"));
-        ad_list.add(new FoodItem(R.drawable.food4, "漢堡", 30, "meal"));
+        ad_list.add(new FoodItem(R.drawable.ad, "廣告1", 50, "drink"));
+        ad_list.add(new FoodItem(R.drawable.ad, "廣告2", 100, "meal"));
+        ad_list.add(new FoodItem(R.drawable.ad, "廣告3", 20, "meal"));
+        ad_list.add(new FoodItem(R.drawable.ad, "廣告4", 30, "meal"));
 
         ListViewAdapter4Homepage adapter = new ListViewAdapter4Homepage(this, ad_list);
         lvAds.setAdapter(adapter);
@@ -45,6 +45,8 @@ public class HomePageActivity extends AppCompatActivity {
         Button.OnClickListener btnLogoutOnClickListener = new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Order order = Order.getInstance();
+                order.clear();
                 Intent intent = new Intent(HomePageActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();

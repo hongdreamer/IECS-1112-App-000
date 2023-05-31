@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +26,18 @@ public class MenuActivity extends AppCompatActivity {
         // set the menu, which is displayed by a listview.
         ListView lvFoods = findViewById(R.id.lv_foods);
         foods = new ArrayList<>();
-        foods.add(new FoodItem(R.drawable.food1, "可樂", 50, "drink"));
-        foods.add(new FoodItem(R.drawable.food2, "雞塊", 100, "meal"));
-        foods.add(new FoodItem(R.drawable.food3, "薯條", 20, "meal"));
-        foods.add(new FoodItem(R.drawable.food4, "漢堡", 30, "meal"));
+        foods.add(new FoodItem(R.drawable.chicken, "雞排", 65, "meal"));
+        foods.add(new FoodItem(R.drawable.salt_chicken, "鹽酥雞", 55, "meal"));
+        foods.add(new FoodItem(R.drawable.squid, "魷魚塊", 55, "meal"));
+        foods.add(new FoodItem(R.drawable.fries, "薯條", 30, "meal"));
+        foods.add(new FoodItem(R.drawable.sweet_no_spicy, "甜不辣", 15, "meal"));
+        foods.add(new FoodItem(R.drawable.tofu, "百頁豆腐", 20, "meal"));
+        foods.add(new FoodItem(R.drawable.pig_blood, "豬血糕", 25, "meal"));
+        foods.add(new FoodItem(R.drawable.plant, "杏鮑菇", 25, "meal"));
+        foods.add(new FoodItem(R.drawable.small_corn, "玉米筍", 25, "meal"));
+        foods.add(new FoodItem(R.drawable.black_tea, "紅茶", 15, "drink"));
+        foods.add(new FoodItem(R.drawable.green_tea, "綠茶", 15, "drink"));
+        foods.add(new FoodItem(R.drawable.milk_tea, "奶茶", 25, "drink"));
 
         ListViewAdapter4Menu adapter = new ListViewAdapter4Menu(this, foods);
         lvFoods.setAdapter(adapter);
@@ -63,9 +73,13 @@ public class MenuActivity extends AppCompatActivity {
         btnCheckCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, CartActivity.class);
-                startActivity(intent);
-                finish();
+                if (calculateTotalPrice() > 0) {
+                    Intent intent = new Intent(MenuActivity.this, CartActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(MenuActivity.this, "訂單為空", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         updateCartButtonText();
