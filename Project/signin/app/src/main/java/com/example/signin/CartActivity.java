@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,11 +47,14 @@ public class CartActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         Order order = Order.getInstance();
+        if (calculateTotalPrice() > 0) {
+          Intent intent = new Intent(CartActivity.this, FinishActivity.class);
+          startActivity(intent);
+          finish();
+        } else {
+          Toast.makeText(CartActivity.this, "訂單為空", Toast.LENGTH_SHORT).show();
+        }
         order.clear();
-
-        Intent intent = new Intent(CartActivity.this, FinishActivity.class);
-        startActivity(intent);
-        finish();
       }
     };
     btnSendOrder.setOnClickListener(listener);
