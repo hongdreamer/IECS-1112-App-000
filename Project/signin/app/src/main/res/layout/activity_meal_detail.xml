@@ -66,10 +66,10 @@
                 android:id="@+id/tv_flavor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="溫度:"
+                android:text="口味："
                 android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/sp_flavor"
@@ -91,10 +91,10 @@
                 android:id="@+id/tv_spiciness"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="糖度:"
+                android:text="辣度："
                 android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/sp_spiciness"
